@@ -15,11 +15,11 @@ export default function LandPage() {
             className="relative"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-black dark:text-white">
-              Generate images with AI
+              AI-Powered Image Generation at Your Fingertips
             </h1>
 
             <p className="text-lg mb-24 max-w-3xl mx-auto leading-relaxed text-black dark:text-white">
-              Create unique, high-quality images from simple text descriptions using advanced AI models
+              Experience the future of creativity with Nano Banana, the AI-driven image generator that transforms your ideas into stunning visuals. Whether you're a designer, marketer, or hobbyist, Nano Banana makes it effortless to create unique images tailored to your needs.
             </p>
           </motion.div>
         </div>

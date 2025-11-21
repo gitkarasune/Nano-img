@@ -8,8 +8,8 @@ import { Footer } from "@/components/layout/footer";
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "G-img-nano",
-  description: "Generate Perfect and Real Images with Nano Banana",
+  title: "Nano Banana - AI Image Generator",
+  description: "Generate stunning images with Nano Banana, the AI-powered image generator. Create unique visuals effortlessly.",
 }
 
 export default function RootLayout({

@@ -18,26 +18,26 @@ interface Step {
 const steps: Step[] = [
   {
     icon: BookOpen,
-    title: "AI-Powered Image generation",
-    description: "Select what you want to learn - React, Python, DevOps, or any tech skill.",
-    features: ["500+ Topics Available", "Beginner to Advanced", "Industry-Relevant Skills", "Updated Weekly"],
+    title: "Wide Range of Topics",
+    description: "Explore a vast library of image styles and themes to suit any project.",
+    features: ["500+ Styles Available", "Thematic Collections", "Regular Updates", "Curated Selection"],
   },
   {
     icon: Brain,
-    title: "Customization Options",
+    title: "Progressive Learning",
     description: "Master concepts progressively from beginner to advanced with AI explanations.",
     features: ["AI-Powered Explanations", "Adaptive Learning", "Personalized Pace", "Interactive Examples"],
   },
   {
     icon: Code,
-    title: "Image Editing Tools",
+    title: "Hands-On Projects",
     description: "Apply knowledge with AI-generated projects and real-world code examples.",
-    features: ["Real-World Projects", "Code Reviews", "Portfolio Building", "GitHub Integration"],
+    features: ["Project-Based Learning", "Real-World Examples", "Code Snippets", "Practical Applications"],
   },
   {
     icon: Trophy,
     title: "Image Recognition",
-    description: "Earn XP, badges, and certificates while building your developer portfolio.",
+    description: "",
     features: ["XP & Achievements", "Skill Certificates", "Progress Analytics", "Career Roadmap"],
   },
   {
