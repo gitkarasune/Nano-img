@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link";
+
 import { LogOut, Monitor, Moon, Sun } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -16,7 +18,6 @@ import {
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { FaExternalLinkAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
 interface UserNavProps {
@@ -109,9 +110,10 @@ export function UserNav({ chatPosition, setChatPosition }: UserNavProps) {
                     <DropdownMenuItem>
                         <span>Settings</span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem className="flex items-center justify-between">
-                        <span>Documentation</span>
-                        <FaExternalLinkAlt className=" h-4 w-4" />
+                    <DropdownMenuItem asChild>
+                        <Link href="/docs" className="flex items-center justify-between w-full cursor-pointer">
+                            <span>Documentation</span>
+                        </Link>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
 
