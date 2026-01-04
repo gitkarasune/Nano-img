@@ -1,7 +1,5 @@
 
-# IMvision
-
-![IMvision Banner](https://via.placeholder.com/1200x400?text=IMvision+AI+Platform)
+# IMvision - Generative AI for instant Image creation.
 
 <div align="center">
 
@@ -14,28 +12,27 @@
 **Create. Generate. Edit.**
 The next-generation AI image platform built for speed and creativity.
 
-[Documentation](/docs) · [Report Bug](https://github.com/gitkarasune/img-nano/issues) · [Request Feature](https://github.com/gitkarasune/img-nano/issues)
+[Documentation](/docs) · [Report Bug](https://github.com/gitkarasune/im-vision/issues) · [Request Feature](https://github.com/gitkarasune/im-vision/issues)
 
 </div>
 
----
 
-## 🚀 Overview
+### Overview
 
 **IMvision** is a state-of-the-art generative AI platform designed to empower creators. Built with the latest web technologies, it offers zero-latency image generation, real-time editing capabilities, and a seamless collaborative experience.
 
 Whether you're sketching a quick concept or refining a masterpiece, IMvision's optimized pipeline powered by Google's Gemini and OpenRouter ensures your creative flow is never interrupted.
 
-## ✨ Key Features
+### Key Features
 
-- **⚡ Real-time Generation**: Instant visuals with optimized API streaming.
-- **🎨 Advanced Editing**: Crop, zoom, generic fill, and comprehensive adjustment tools.
-- **🔐 Secure Authentication**: Robust user management via Better-Auth.
-- **📂 History & Persistence**: Automatic saving of all prompts and generated assets to PostgreSQL.
-- **📱 Responsive Design**: A stunning, mobile-first interface with fluid animations.
-- **🌗 Dark/Light Mode**: Fully themable UI for any environment.
+- *Real-time Generation*: Instant visuals with optimized API streaming.
+- *Advanced Editing*: Crop, zoom, generic fill, and comprehensive adjustment tools.
+- *Secure Authentication*: Robust user management via Better-Auth.
+- *History & Persistence*: Automatic saving of all prompts and generated assets to PostgreSQL.
+- *Responsive Design*: A stunning, mobile-first interface with fluid animations.
+-  *Dark/Light Mode*: Fully themable UI for any environment.
 
-## 🛠️ Tech Stack
+### Tech Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
@@ -45,9 +42,6 @@ Whether you're sketching a quick concept or refining a masterpiece, IMvision's o
 - **Auth**: [Better-Auth](https://github.com/better-auth/better-auth)
 - **Deployment**: Vercel
 
-## 🚀 Getting Started
-
-Follow these steps to set up IMvision locally.
 
 ### Prerequisites
 
@@ -63,42 +57,48 @@ Follow these steps to set up IMvision locally.
    cd im-vision
    ```
 
-2. **Install dependencies**
+2. **Set the upstream remote**
+   ```bash
+   git remote add upstream https://github.com/gitKarasune/im-vision.git
+   ```
+
+3. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Configure Environment**
+4. **Configure Environment**
    Renamed `env.example` to `.env` and fill in your keys.
    ```bash
    cp env.example .env
    ```
 
-4. **Run the development server**
+5. **Run the development server**
    ```bash
    npm run dev
    ```
 
    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## 🤝 Contributing
+### Contributing
 
 We welcome contributions from the community!
 
 1. **Fork the Project**
 2. **Create your Feature Branch** (`git checkout -b feature/AmazingFeature`)
+2. **Stage your changes** (`git add .`)
 3. **Commit your Changes** (`git commit -m 'Add some AmazingFeature'`)
 4. **Push to the Branch** (`git push origin feature/AmazingFeature`)
 5. **Open a Pull Request**
 
-Please read our [Contribution Guidelines](CONTRIBUTING.md) strictly before submitting.
+Please read our *[Contribution Guidelines](CONTRIBUTING.md)* strictly before submitting.
 
-## 📄 License
+### License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-<div align="center">
+<div>
   <p>Built with ❤️ by <a href="https://github.com/gitkarasune">Karasune</a></p>
 </div>
