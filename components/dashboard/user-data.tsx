@@ -117,7 +117,7 @@ export function UserNav({ chatPosition, setChatPosition }: UserNavProps) {
                         </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                        <Link href="/docs" className="flex items-center justify-between w-full cursor-pointer">
+                        <Link href="/docs" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full cursor-pointer">
                             <span className="flex items-center gap-2">Documentation</span>
                             <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                         </Link>

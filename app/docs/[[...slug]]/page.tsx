@@ -576,9 +576,11 @@ export default function DocsPage({ params }: { params: Promise<{ slug?: string[]
     const data = docContent[slug] || getGenericContent(slug);
 
     return (
-        <div className="space-y-2">
-            <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">{data.title}</h1>
-            <div className="pb-12 pt-8">
+        <div className="space-y-4 max-w-3xl">
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-white mb-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                {data.title}
+            </h1>
+            <div className="prose prose-zinc prose-invert max-w-none pb-12 dark:prose-headings:text-white dark:prose-p:text-zinc-400 dark:prose-strong:text-white dark:prose-code:text-zinc-200 dark:prose-li:text-zinc-400">
                 {data.content}
             </div>
         </div>
