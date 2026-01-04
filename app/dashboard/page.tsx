@@ -96,7 +96,11 @@ export default function Dashboard() {
         }));
         setImages(uiImages);
 
-        setGenerationStatus('success');
+        if (uiImages.length > 0) {
+          setGenerationStatus('success');
+        } else {
+          setGenerationStatus('error');
+        }
         // Close sidebar if mobile
         // setIsSidebarOpen(false); 
       }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { LogOut, Monitor, Moon, Sun } from "lucide-react";
+import { LogOut, Monitor, Moon, Sun, User, Settings, ExternalLink } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client"
@@ -104,15 +104,22 @@ export function UserNav({ chatPosition, setChatPosition }: UserNavProps) {
                 </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                        <span>Profile</span>
+                    <DropdownMenuItem className="cursor-pointer" asChild>
+                        <Link href="/profile" className="flex items-center gap-2 w-full">
+                            <User className="h-4 w-4" />
+                            <span>Profile</span>
+                        </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <span>Settings</span>
+                    <DropdownMenuItem className="cursor-pointer" asChild>
+                        <Link href="/settings" className="flex items-center gap-2 w-full">
+                            <Settings className="h-4 w-4" />
+                            <span>Settings</span>
+                        </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                         <Link href="/docs" className="flex items-center justify-between w-full cursor-pointer">
-                            <span>Documentation</span>
+                            <span className="flex items-center gap-2">Documentation</span>
+                            <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                         </Link>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
@@ -175,7 +182,7 @@ export function UserNav({ chatPosition, setChatPosition }: UserNavProps) {
                 </div>
 
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="gap-2 cursor-pointer text-red-600 focus:text-red-600 focus:bg-red-50 dark:focus:bg-red-950/20" onClick={handleLogout}>
+                <DropdownMenuItem className="gap-2 cursor-pointer" onClick={handleLogout}>
                     <LogOut className="h-4 w-4" />
                     <span>Sign Out</span>
                 </DropdownMenuItem>

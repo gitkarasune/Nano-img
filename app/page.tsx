@@ -1,28 +1,47 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PromptInput, PromptSettings } from '@/components/dashboard/prompt-input';
 import { AppHeader } from '@/components/dashboard/app-header';
 import { RotatingPrompts } from '@/components/dashboard/rotating-prompts';
 import { AuthModal } from '@/components/auth/auth-modal';
 import { useAuthTrigger } from '@/lib/redirect-not-authenticated-to-sign-up';
 import { useRouter } from 'next/navigation';
+import { authClient } from '@/lib/auth-client';
 
 export default function Home() {
   const [promptValue, setPromptValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { showAuthModal, setShowAuthModal, authView, setAuthView, ensureAuthenticated } = useAuthTrigger();
+  const { data: session } = authClient.useSession();
+  const [chatPosition, setChatPosition] = useState<'left' | 'right'>('left');
 
-  // Sidebar State (Only if we want sidebar on Home? "app-sidebar if needed too... if they are on split... redirect them to homepage". 
-  // User seems to imply sidebar is mostly for dashboard/split view, but maybe header exists on Home.
-  // Existing code had AppSidebar on Home. I will keep AppHeader, maybe strip Sidebar if it's dashboard specific, 
-  // but "app-sidebar" usually implies global. 
-  // However, for a landing page, usually we want a clean look. 
-  // The user said "on the app/page.tsx as the home page... once they enter a prompt... redirect... to dashboard".
-  // So Home is just the "Search/Prompt" interface.
 
-  const [chatPosition, setChatPosition] = useState<'left' | 'right'>('left'); // Valid prop for header?
+
+  // Handle redirect after login if there's a pending prompt
+  useEffect(() => {
+    if (session) {
+      const pending = localStorage.getItem('pendingPrompt');
+      if (pending) {
+        try {
+          const { prompt, settings } = JSON.parse(pending);
+
+          const params = new URLSearchParams();
+          params.set('prompt', prompt);
+          if (settings.packshotMode) params.set('packshot', 'true');
+          if (settings.realisticShadows) params.set('shadows', 'true');
+          if (settings.aspectRatio) params.set('ar', settings.aspectRatio);
+
+          localStorage.removeItem('pendingPrompt');
+          router.push(`/dashboard?${params.toString()}`);
+        } catch (e) {
+          console.error("Failed to parse pending prompt", e);
+          localStorage.removeItem('pendingPrompt');
+        }
+      }
+    }
+  }, [session, router]);
 
   const handleGenerate = async (prompt: string, settings: PromptSettings) => {
     setIsLoading(true);
@@ -32,8 +51,6 @@ export default function Home() {
 
     if (isAuthenticated) {
       // 2. Redirect to Dashboard with prompt
-      // We need to encode the prompt and settings to pass them.
-      // Or just the prompt for simplicity as "start generating image"
       const params = new URLSearchParams();
       params.set('prompt', prompt);
       if (settings.packshotMode) params.set('packshot', 'true');
@@ -42,6 +59,8 @@ export default function Home() {
 
       router.push(`/dashboard?${params.toString()}`);
     } else {
+      // 3. Save to localStorage for post-login redirect
+      localStorage.setItem('pendingPrompt', JSON.stringify({ prompt, settings }));
       // Modal opens via ensureAuthenticated hook state
       setIsLoading(false);
     }
