@@ -169,16 +169,16 @@ function LoadingState() {
 
     return (
         <div className="flex flex-col items-center gap-4 animate-in fade-in duration-500">
-            <div className="w-12 h-12 rounded-full border-4 border-primary border-t-blue-700 animate-spin" />
+            <div className="w-6 h-6 rounded-full border-4 border-primary border-t-blue-700 animate-spin" />
 
             {phase === 'generating' && (
-                <p className="text-muted-foreground animate-in slide-in-from-bottom-2 fade-in">
+                <p className="text-muted-foreground animate-in slide-in-from-bottom-2 fade-in text-xs">
                     Generating<AnimatedEllipsis />
                 </p>
             )}
 
             {phase === 'message' && (
-                <p className="text-muted-foreground animate-in slide-in-from-bottom-2 fade-in text-center max-w-[250px]">
+                <p className="text-muted-foreground animate-in slide-in-from-bottom-2 fade-in text-center max-w-[250px] text-xs">
                     Just a moment, we're getting your image ready!
                 </p>
             )}

@@ -77,7 +77,7 @@ export function UserNav({ chatPosition, setChatPosition }: UserNavProps) {
 
     if (!session || error) {
         return (
-            <Button variant="outline" size="sm" className="rounded-none" onClick={() => window.location.href = '/login'}>
+            <Button variant="outline" size="sm" className="rounded-none cursor-pointer" onClick={() => window.location.href = '/login'}>
                 Login
             </Button>
         )

@@ -88,7 +88,6 @@ export function PromptInput({ onGenerate, isLoading, className, value, onValueCh
         }
     }, [prompt]);
 
-
     // Auto-resize textarea and check for expand icon visibility
     useEffect(() => {
         if (textareaRef.current) {
@@ -207,7 +206,7 @@ export function PromptInput({ onGenerate, isLoading, className, value, onValueCh
                                         <Settings2 className="w-4 h-4" />
                                         <span className="text-xs font-medium">Settings</span>
                                         {(settings.packshotMode || settings.realisticShadows) && (
-                                            <span className="w-2 h-2 rounded-full bg-primary" />
+                                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                                         )}
                                     </Button>
                                 </PopoverTrigger>
@@ -267,10 +266,11 @@ export function PromptInput({ onGenerate, isLoading, className, value, onValueCh
                                 </PopoverContent>
                             </Popover>
 
+                            {/* Add this functionality that when users click this or make ths active, now the prompt will be ehnace in a way that when users now type on the input, a suggest will be made automatically and random correctly and checked and if the users like it and press tab  button on keyboard, it will automatically filled everything at once but if don't like it, they click the ESC key, it goes and once they type anywords again too or any letter, the suggestion continues as well, once its turn on, i want the text to be text-purple-600  */}
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="h-8 w-8 text-muted-foreground hover:text-purple-500 transition-colors border rounded-none cursor-pointer"
+                                className="h-8 w-8 rounded-none text-muted-foreground hover:text-purple-500 transition-colors cursor-pointer"
                                 onClick={handleEnhancePrompt}
                                 title="Enhance Prompt"
                             >
@@ -300,24 +300,27 @@ export function PromptInput({ onGenerate, isLoading, className, value, onValueCh
                             )}
 
                             {/* Submit Button */}
-                            <Button
-                                size="icon"
-                                onClick={() => handleSubmit()}
-                                disabled={!prompt.trim() || isLoading}
-                                className={cn(
-                                    "h-8 w-8 transition-all duration-200 rounded-none cursor-pointer relative",
-                                    prompt.trim() ? "border-none opacity-100" : "border-none opacity-50 rotate-180 transition-all",
-                                    ` ${isLoading && 'border-none opacity-100 transition-all'}`
-                                )}
-                            >
-                                {isLoading
-                                    &&
-                                    <div className="w-3 h-3 absolute rounded-full border-2 border-primary border-t-blue-700 animate-spin" />
-                                }
+                            {isLoading ?
+                                <div className='flex justify-center items-center mr-5'
+                                >
+                                    <div className="w-3 h-3 absolute rounded-full border-2 border-primary border-t-blue-700 animate-spin disabled:cursor-not-allowed" />
+                                </div>
 
-                                {!isLoading && <ArrowUp className="w-4 h-4" />}
+                                :
 
-                            </Button>
+                                <Button
+                                    size="icon"
+                                    onClick={() => handleSubmit()}
+                                    disabled={!prompt.trim() || isLoading}
+                                    className={cn(
+                                        "h-8 w-8 transition-all duration-200 rounded-none cursor-pointer relative",
+                                        prompt.trim() ? "border-none opacity-100" : "border-none opacity-50 rotate-90 transition-all",
+                                        ` ${isLoading && 'border-none opacity-100 transition-all'}`
+                                    )}
+                                >
+                                    <ArrowUp className="w-4 h-4" />
+                                </Button>
+                            }
                         </div>
                     </div>
                 </div>

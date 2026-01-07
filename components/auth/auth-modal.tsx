@@ -30,7 +30,7 @@ export function AuthModal({ isOpen, onClose, initialView = 'signin' }: AuthModal
             if (!open) return; // Prevent closing via auto-events 
         }}>
             <DialogContent
-                className="w-full p-0 gap-0 overflow-hidden bg-white dark:bg-black border rounded-none"
+                className="w-full p-0 gap-0 overflow-hidden border-none bg-white dark:bg-black text-black dark:text-white"
                 // This prevents the default close button from rendering or working if we want custom behavior
                 // But shadcn usually includes a close button. Use `[&>button]:hidden` to hide default close.
                 forceMount
@@ -42,10 +42,10 @@ export function AuthModal({ isOpen, onClose, initialView = 'signin' }: AuthModal
                 }}
             >
                 {/* the times close button */}
-                <div className="absolute right-4 top-4 z-50 border rounded-none">
+                <div className="absolute right-4 top-4 z-50">
                     <Button
                         size="icon"
-                        className="h-8 w-8 rounded-none bg-white dark:bg-black text-black dark:text-white cursor-pointer"
+                        className="h-8 w-8 bg-white dark:bg-black text-black dark:text-white cursor-pointer"
                         onClick={onClose}
                     >
                         <X className="h-4 w-4 " />

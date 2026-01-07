@@ -58,7 +58,7 @@ export function RotatingPrompts({ onSelect, isLoading }: RotatingPromptsProps) {
     }, [promptIndex]);
 
     return (
-        <div className='flex flex-wrap justify-center gap-3 mb-4 w-full max-w-2xl'>
+        <div className='flex flex-wrap justify-center gap-3 mb-4 w-full max-w-2xl mx-auto'>
             <AnimatePresence mode='popLayout'>
                 {activePrompts.map((prompt, i) => (
                     <motion.div
@@ -77,7 +77,7 @@ export function RotatingPrompts({ onSelect, isLoading }: RotatingPromptsProps) {
                         {/* ALso add the functionality that when i click any of the buttons, automatically make the curosr or the form active as when i click on an input form */}
                         <Button
                             variant={"outline"}
-                            className='rounded-full p-5 cursor-pointer h-auto py-2 disabled:cursor-not-allowed disabled:opacity-50'
+                            className='rounded-full p-5 cursor-pointer h-auto py-1.5 disabled:cursor-not-allowed disabled:opacity-50'
                             onClick={() => onSelect(prompt)}
                             disabled={isLoading}
                         >

@@ -75,8 +75,12 @@ export function LoginForm({
   }
 
   return (
-    <div className={cn("min-h-screen max-w-xl mx-auto flex flex-col justify-center items-center gap-6 px-2 lg:px-0", className)} {...props}>
+    <div className={cn("min-h-screen max-w-xl mx-auto flex flex-col justify-center items-center gap-6 px-2 lg:px-0 overflow-hidden  relative is-home-page selection:bg-black/5 selection:dark:bg-white/10", className)} {...props}>
 
+      {/* Background Pattern - Radial Gradient */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12)_0%,transparent_50%)]" />
+      </div>
 
       <Card className="shadow-none border w-full rounded-none bg-white dark:bg-black text-black dark:text-white py-16">
         <CardContent className="shadow-none rounded-none ">
@@ -149,7 +153,7 @@ export function LoginForm({
                         )}
                       />
                       <Link
-                        className="ml-auto text-sm underline-offset-4 border p-2 hover:underline"
+                        className="ml-auto text-sm underline-offset-4 hover:underline"
                         href="/forgot-password"
                       >
                         Forgot password?

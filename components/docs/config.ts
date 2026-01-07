@@ -27,17 +27,7 @@ export const docsConfig: DocsConfig = {
             href: "/docs/features",
             items: [
                 { title: "Image Generation", href: "/docs/image-generation" },
-                { title: "Prompt Engineering", href: "/docs/prompt-engineering" },
                 { title: "Image Editing", href: "/docs/image-editing" },
-                { title: "History & Management", href: "/docs/history" },
-            ],
-        },
-        {
-            title: "API & Configuration",
-            href: "/docs/api",
-            items: [
-                { title: "Environment Variables", href: "/docs/env-vars" },
-                { title: "OpenRouter Integration", href: "/docs/openrouter" },
             ],
         },
     ],

@@ -256,15 +256,22 @@ export default function Dashboard() {
 
   if (isPending) return (
     <div className="flex h-screen flex-col items-center justify-center bg-white dark:bg-black text-black dark:text-white gap-3 animate-in fade-in duration-500">
-      <div className="w-12 h-12 rounded-full border-4 border-primary border-t-blue-700 animate-spin" />
-      <p className="text-muted-foreground animate-in slide-in-from-bottom-2 fade-in">
+      <div className="w-6 h-6 rounded-full border-4 border-primary border-t-blue-700 animate-spin" />
+      <p className="text-xs text-muted-foreground animate-in slide-in-from-bottom-2 fade-in">
         Just a moment<AnimatedEllipsis />
       </p>
     </div>
   )
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-white dark:bg-black text-black dark:text-white relative">
+    <div className="flex flex-col h-screen overflow-hidden bg-white dark:bg-black text-black dark:text-white relative is-home-page selection:bg-black/5 selection:dark:bg-white/10">
+
+      {/* Background Pattern - Radial Gradient */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.08)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12)_0%,transparent_50%)]" />
+      </div>
+
+
       <AppSidebar
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}

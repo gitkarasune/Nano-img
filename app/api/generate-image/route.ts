@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     if (!conversationId) {
       // Fallback or error? Let's just create one if missing or error.
       // Actually, let's require it for persistence.
-      if (process.env.NODE_ENV === 'development') console.warn("No conversationId provided to generate-image");
+      if (process.env.NODE_ENV === 'development') console.warn("No conversationId provided to generate-image"); 
     }
 
     const apiKey = process.env.OPENROUTER_API_KEY;

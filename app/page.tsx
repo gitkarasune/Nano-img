@@ -17,8 +17,6 @@ export default function Home() {
   const { data: session } = authClient.useSession();
   const [chatPosition, setChatPosition] = useState<'left' | 'right'>('left');
 
-
-
   // Handle redirect after login if there's a pending prompt
   useEffect(() => {
     if (session) {
