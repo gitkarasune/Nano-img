@@ -1,4 +1,4 @@
-"use server";
+"use server"
 
 import { db } from "@/db/drizzle";
 import { user } from "@/db/schema";
@@ -71,4 +71,41 @@ export async function getProfileStats() { // Optional if not using session for e
     });
 
     return userData;
+}
+
+export async function updateTheme(theme: string) {
+    const session = await auth.api.getSession({
+        headers: await headers()
+    });
+
+    if (!session?.user) {
+        throw new Error("Unauthorized");
+    }
+
+    await db.update(user)
+        .set({ theme })
+        .where(eq(user.id, session.user.id));
+
+    // Revalidate relevant paths
+    revalidatePath('/dashboard');
+    return { success: true };
+}
+
+export async function getTheme() {
+    const session = await auth.api.getSession({
+        headers: await headers()
+    });
+
+    if (!session?.user) {
+        return null; // Or default 'system'
+    }
+
+    const userData = await db.query.user.findFirst({
+        where: eq(user.id, session.user.id),
+        columns: {
+            theme: true
+        }
+    });
+
+    return userData?.theme || 'system';
 }

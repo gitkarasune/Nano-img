@@ -1,4 +1,3 @@
-"use client";
 
 import { ProfileHeader } from "@/components/profile/profile-header";
 import { ShowcaseGrid } from "@/components/profile/showcase-grid";
@@ -15,6 +14,7 @@ export default function ProfilePage() {
                         <ShowcaseGrid />
                     </div>
                 </div>
+                
             </div>
         </div>
     );

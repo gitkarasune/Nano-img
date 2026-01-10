@@ -1,3 +1,5 @@
+"use server"
+
 import { getShowcaseImages } from "@/app/actions/image-actions";
 import { Globe, Download } from "lucide-react";
 import Image from "next/image";
