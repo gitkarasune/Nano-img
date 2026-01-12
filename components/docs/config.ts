@@ -18,17 +18,7 @@ export const docsConfig: DocsConfig = {
             href: "/docs",
             items: [
                 { title: "Introduction", href: "/docs" },
-                { title: "Installation", href: "/docs/installation" },
-                { title: "Authentication", href: "/docs/authentication" },
-            ],
-        },
-        {
-            title: "Features",
-            href: "/docs/features",
-            items: [
-                { title: "Image Generation", href: "/docs/image-generation" },
-                { title: "Image Editing", href: "/docs/image-editing" },
-            ],
+                { title: "Installation", href: "/docs/installation" },            ],
         },
     ],
 };

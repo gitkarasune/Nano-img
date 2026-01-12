@@ -17,12 +17,8 @@ export function MobileDocsNav() {
                     <span className="sr-only">Toggle Menu</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="pr-0 bg-black text-white border-r border-zinc-800">
-                <div className="px-7 pt-4">
-                    <a href="/dashboard" className="flex items-center mb-4 text-white">
-                        <span className="">IMvision</span>
-                    </a>
-                </div>
+
+            <SheetContent side="left" className="pr-0 bg-black text-white">
                 <DocsSidebar
                     className="block static h-auto w-full border-none bg-black text-white"
                     onLinkClick={() => setOpen(false)}

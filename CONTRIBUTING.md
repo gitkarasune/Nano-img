@@ -80,19 +80,6 @@ To get your development environment running:
     npm run dev
     ```
 
-### 📥 Pull Request Guidelines
-
-1.  **Fork the repo** and create your branch from `main`.
-2.  **Branch Naming**:
-    - `feature/my-new-feature`
-    - `fix/my-bug-fix`
-    - `docs/documentation-update`
-3.  **Update Documentation**: If you've changed APIs, update the relevant documentation.
-4.  **Verify**: Ensure the app builds and runs locally without errors.
-5.  **Submit PR**: detailed description of your changes. Link any relevant issues.
-
-### 🎨 Styleguides
-
 ### Git Commit Messages
 
 We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. This leads to more readable messages that are easy to follow when looking through the project history.
