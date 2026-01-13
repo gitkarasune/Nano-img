@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { authClient } from "@/lib/auth-client";
 import { ChatInterface, ChatMessage } from '@/components/dashboard/chat-interface';
@@ -16,7 +16,7 @@ import { MobileTabs, TabStatus } from '@/components/dashboard/mobile-tabs';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createChat } from '@/app/actions/chat-actions';
 
-export default function Dashboard() {
+function DashboardContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -436,5 +436,17 @@ export default function Dashboard() {
         onSave={handleSaveEdit}
       />
     </div>
+  );
+}
+
+export default function Dashboard() {
+  return (
+    <Suspense fallback={
+      <div className="flex h-screen flex-col items-center justify-center bg-white dark:bg-black text-black dark:text-white gap-3">
+        <div className="w-6 h-6 rounded-full border-4 border-primary border-t-blue-700 animate-spin" />
+      </div>
+    }>
+      <DashboardContent />
+    </Suspense>
   );
 }
