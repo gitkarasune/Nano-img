@@ -17,7 +17,7 @@ The next-generation AI image platform built for speed and creativity.
 </div>
 
 <div style="text-align: center;">
-  <img src="image.jpg" alt="Centered image">
+  <img src="./public/image.png" alt="Centered image">
 </div>
 
 ### Overview
